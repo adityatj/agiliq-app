@@ -1,4 +1,4 @@
-import urllib2, urllib, json,requests
+import urllib, requests
 
 get_data = {}
 
