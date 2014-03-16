@@ -1,5 +1,8 @@
 import urllib, requests
 
+__author__ = 'TJ Aditya'
+__version__ = '0.1'
+
 get_data = {}
 
 get_data['client_id'] = 'szZwr7btCFclzzMZJI07zzevkvdPj27Eumzrc5KT3hOrzPZuqp'
