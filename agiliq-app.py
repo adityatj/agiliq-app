@@ -1,4 +1,4 @@
-import urllib, requests
+import urllib, requests, json
 
 __author__ = 'TJ Aditya'
 __version__ = '0.1'
@@ -18,17 +18,15 @@ r = requests.get('http://join.agiliq.com/oauth/access_token/?' + payload)
 
 access_token = r.json()['access_token']
 
-
 post_data = {}
 
-post_data['access_token'] = access_token
 post_data['first_name'] = 'Aditya'
 post_data['last_name'] = 'TJ'
 post_data['projects_url'] = 'https://github.com/adityatj'
 post_data['code_url'] = 'https://github.com/adityatj/agiliq-app'
 files = {'resume': open('Resume.docx', 'rb')}
 
-r = requests.post('http://join.agiliq.com/api/resume/upload/?', files=files, data=post_data)
+r = requests.post('http://join.agiliq.com/api/resume/upload/?access_token=' + access_token, files=files, data=post_data)
 
-print r.status_code
-
+if r.json()['success']:
+    print 'Resume uploaded!'
